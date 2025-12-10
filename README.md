@@ -81,3 +81,97 @@ This project solves the "information overload" problem in healthcare.
 - **Contextual Understanding**: Unlike standard keyword search (Ctrl+F), the chatbot understands context (e.g., asking "how to treat it?" after asking about "Acne").
 - **Efficiency**: Reduces the time spent scrolling through hundreds of pages.
 - **Accuracy**: By grounding the LLM's responses in specific source documents (RAG), it significantly reduces hallucinations common in general-purpose chatbots.
+
+
+
+# End-to-end-Medical-Chatbot-Generative-AI
+
+
+# How to run?
+### STEPS:
+
+Clone the repository
+
+```bash
+Project repo: https://github.com/
+```
+### STEP 01- Create a conda environment after opening the repository
+
+```bash
+conda create -n medibot python=3.10 -y
+```
+
+```bash
+conda activate medibot
+```
+
+
+### STEP 02- install the requirements
+```bash
+pip install -r requirements.txt
+```
+
+
+### Create a `.env` file in the root directory and add your Pinecone & openai credentials as follows:
+
+```ini
+PINECONE_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+OPENAI_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+```
+
+
+```bash
+# run the following command to store embeddings to pinecone
+python store_index.py
+```
+
+```bash
+# Finally run the following command
+python app.py
+```
+
+Now,
+```bash
+open up localhost:
+```
+
+
+### Techstack Used:
+
+- Python
+- LangChain
+- Flask
+- GPT
+- Pinecone
+
+
+save the url 005743379693.dkr.ecr.ap-south-1.amazonaws.com/medicalchatbot
+
+#!/bin/bash
+
+# Optional
+sudo apt-get update -y
+sudo apt-get upgrade -y
+
+# Required – Install Docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+
+# Add ubuntu user to docker group
+sudo usermod -aG docker ubuntu
+
+# Apply group changes
+newgrp docker
+
+
+# 6. Configure EC2 as self-hosted runner:
+setting > actions > runner > new self hosted runner > choose os > then run command one by one
+
+# 7. Setup github secrets:
+
+- AWS_ACCESS_KEY_ID
+- AWS_SECRET_ACCESS_KEY
+- AWS_DEFAULT_REGION
+- ECR_REPO
+- PINECONE_API_KEY
+- OPENAI_API_KEY or GOOGLE_API_KEY
